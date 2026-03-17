@@ -158,11 +158,57 @@ echo "Hello, $name!"
 
 Concatenation:
 --------------
+Concatenation means joining (combining) multiple strings together
 Concatenate strings using variables.
 Example:
 greeting="Hello"
 target="World"
 echo "$greeting, $target!"
+
+| Concept           | What it means         | Example      | Result                    |
+| ----------------- | --------------------- | ------------ | ------------------------- |
+| **Accessing**     | Referring to variable | `$name`      | Just pointing to variable |
+| **Expanding**     | Getting actual value  | `"Hi $name"` | `Hi Alice`                |
+| **Concatenation** | Joining values        | `"$a$b"`     | `HelloWorld`              |
+
+Accessing is what you do
+Expansion is what the shell does
+
+1. Accessing a Variable
+Accessing means referring to the variable so you can use its value
+Example:
+name="Alice"
+echo $name
+$name → you are accessing the variable
+You are telling the shell: “use this variable”
+Think:
+Access = calling the variable
+
+Expanding a Variable
+Expansion means replacing the variable with its actual value
+Example:
+name="Alice"
+echo "Hello $name"
+What happens internally:
+echo "Hello Alice"
+$name gets expanded to Alice
+Think:
+Expansion = conversion of variable → value
+
+3. Concatenation of Variables
+Concatenation means joining multiple strings/variables together
+Example:
+greeting="Hello"
+target="World"
+echo "$greeting $target"
+Internally:
+echo "Hello World"
+$greeting → expanded to Hello
+$target → expanded to World
+Then both are joined together
+Think:
+Concatenation = joining expanded values
+
 
 
 Types of variables
