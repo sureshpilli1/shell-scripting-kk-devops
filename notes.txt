@@ -3,7 +3,8 @@ shell scripting
 #shell scripting123
 What is shell?
 -> shell refers to a user interface that allows users to interact with the operating system (OS) or execute commands. 
--> It acts as a command interpreter, taking commands entered by the user (via a command-line interface or graphical interface) and executing them by communicating with the OS kernel.
+-> It acts as a command interpreter, taking commands entered by the user (via a command-line interface or graphical interface)
+   and executing them by communicating with the OS kernel.
 -> In most of Linux OS BASH[Bourne Again SHell] is the default shell type.
 -> There are other shell programs are there,
    1. Korn shell
