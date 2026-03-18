@@ -195,6 +195,9 @@ $name gets expanded to Alice
 Think:
 Expansion = conversion of variable → value
 
+Accessing = Mentioning the variable
+Expansion = Getting its value
+
 3. Concatenation of Variables
 Concatenation means joining multiple strings/variables together
 Example:
@@ -219,7 +222,7 @@ Variables inherited from the shell environment or explicitly exported using expo
 env or printenv ---> Used to get the system variables.
 echo "Current user: $USER"
 
-expose
+export
 ------
 It is a command to override the system defined values.
 EX: echo $HISTSIZE
@@ -230,7 +233,8 @@ NOTE: It is only for particular session, How to change permanently?
      ~/.bash_profile
      export HISTSIZE=300
 
-
+HISTSIZE is an environment variable that controls:
+How many commands your shell remembers in history
 
 
 Local Variables or user defined variables
