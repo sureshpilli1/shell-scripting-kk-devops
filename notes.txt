@@ -277,14 +277,6 @@ Command line arguments in shell scripting
 
 Command line arguments in shell scripting allow you to pass arguments or parameters to a script when it is executed from the command line.
 
-Accessing Command Line Arguments:
-----------------------------------
-$0 ---> script name
-$1 ---> First argument
-$2 ---> second argument
-
-Note: If it is more than one number keep it like this ${10}
-
 Ex:
 #!/bin/bash
 echo "Script name: $0"
@@ -292,7 +284,18 @@ echo "First argument: $1"
 echo "Second argument: $2"
 
 sh Demo.sh Prasanth reddy
+output:
+Script name: Demo.sh
+First argument: Prasanth
+Second argument: reddy
 
+Accessing Command Line Arguments:
+----------------------------------
+$0 ---> script name
+$1 ---> First argument
+$2 ---> second argument
+
+Note: If it is more than one number keep it like this ${10}
 
 Special Variables:
 ------------------
