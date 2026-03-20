@@ -396,6 +396,12 @@ fi
 -z means:
 "Check if variable is empty"
 
+sh does NOT understand -t
+So it throws:
+Illegal option -t
+Use bash explicitly
+bash Demo.sh
+
 6. Reading Input Silently (Password Input)
 ------------------------------------------
 
@@ -407,6 +413,15 @@ echo    # Move to a new line after password input
 
 # Validate or process the password input
 echo "Password entered."
+
+
+| Option     | Meaning               |
+| ---------- | --------------------- |
+| `read var` | Basic input           |
+| `-p`       | Prompt message        |
+| `-t`       | Timeout               |
+| `-s`       | Silent (hidden input) |
+| `-a`       | Array input           |
 
 
 Operators in shell scripting
