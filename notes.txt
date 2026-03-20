@@ -315,6 +315,10 @@ $? ---> Previous command execution status.
 
 08/07/2024
 ==========
+What is read in Shell?
+read is a command used to take input from the user at runtime
+Think:
+Script pauses → waits for user input → stores it in a variable
 
 How to read a value at runtime in shell scripting?
 ===================================================
