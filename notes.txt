@@ -427,7 +427,8 @@ echo "Password entered."
 Operators in shell scripting
 =============================
 
-In shell scripting, operators are used to perform various operations like arithmetic, comparison, logical operations, and string manipulations. Here's a detailed overview of different types of operators in shell scripting with examples:
+In shell scripting, operators are used to perform various operations like arithmetic, comparison, logical operations, and string manipulations. 
+Here's a detailed overview of different types of operators in shell scripting with examples:
 
 1. Arithmetic Operators
 --------------------------
