@@ -448,9 +448,23 @@ sh open1.sh  20 5
 
 $1, $2
 
+$(( expression ))
+means:
+Perform arithmetic calculation
+$(( ... )) → tells Bash: “calculate this mathematically”
+if we write 
+echo "$a - $b"
+Output will be:
+5 - 3
+No calculation — just text
+What (()) Actually Means
+
+$(( )) = Arithmetic Expansion
+$ → expansion
+(()) → arithmetic operation
+
 2. Comparison Operators
 ------------------------
-
 a=20
 b=30
 
