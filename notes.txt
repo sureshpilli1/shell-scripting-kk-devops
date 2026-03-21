@@ -537,6 +537,11 @@ fi
 
 4. String Operators
 -------------------
+Used to compare and manipulate text (strings)
+Unlike numbers:
+Numbers → -eq, -gt
+Strings → =, !=
+
 
 # String Operators
 str1="Hello"
@@ -551,8 +556,23 @@ if [ "$str1" != "$str2" ]; then
 fi
 str3="$str1 $str2"
 echo "Concatenated string: $str3"
+
+string length:
 length=${#str1}
 echo "Length of str1 is $length"
+
+| Operation     | Syntax    | Meaning           |
+| ------------- | --------- | ----------------- |
+| Equal         | `=`       | Strings same      |
+| Not Equal     | `!=`      | Strings different |
+| Concatenation | `"$a $b"` | Join strings      |
+| Length        | `${#var}` | Count characters  |
+
+| Check       | Meaning      |
+| ----------- | ------------ |
+| `-z "$str"` | Empty string |
+| `-n "$str"` | Not empty    |
+
 
 control statements in shell scripting
 ======================================
