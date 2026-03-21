@@ -487,7 +487,7 @@ fi
 
 3. Logical Operators
 --------------------
-&&[AND]
+1. &&[AND]
 ===
 
 A   B  A&&B
@@ -498,7 +498,7 @@ F   T   F
 F   F   F
 
 
-||[OR]
+2. ||[OR]
 ---
 A    B   A||B
 --------------
@@ -506,6 +506,20 @@ T    T     T
 T    F     T
 F    T     T
 F    F     F
+
+3. NOT Operator (!)
+---
+It reverses the result
+| Input | Output |
+| ----- | ------ |
+| TRUE  | FALSE  |
+| FALSE | TRUE   |
+
+
+syntax
+[ condition1 ] && [ condition2 ]
+modern syntax:
+if [[ $a -eq 20 && $b -eq 5 ]]; then
 
 
 a=30
