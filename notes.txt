@@ -463,6 +463,7 @@ $(( )) = Arithmetic Expansion
 $ → expansion
 (()) → arithmetic operation
 
+
 2. Comparison Operators
 ------------------------
 a=20
@@ -484,6 +485,16 @@ fi
 
 -ge(>=) ---> greater than equal to
 -le(<=) ---> less than equal to
+
+| Operator | Meaning          | Example  |
+| -------- | ---------------- | -------- |
+| `-eq`    | Equal            | 10 == 10 |
+| `-ne`    | Not equal        | 10 != 5  |
+| `-gt`    | Greater than     | 10 > 5   |
+| `-lt`    | Less than        | 5 < 10   |
+| `-ge`    | Greater or equal | 10 >= 10 |
+| `-le`    | Less or equal    | 5 <= 10  |
+
 
 3. Logical Operators
 --------------------
@@ -577,7 +588,9 @@ echo "Length of str1 is $length"
 control statements in shell scripting
 ======================================
 
-Control statements in shell scripting allow you to control the flow of execution based on certain conditions or loops. They help in making decisions, repeating code blocks, and branching based on conditions. Here’s a detailed explanation of the main control statements in shell scripting:
+Control statements in shell scripting allow you to control the flow of execution based on certain conditions or loops. 
+They help in making decisions, repeating code blocks, and branching based on conditions. 
+Here’s a detailed explanation of the main control statements in shell scripting:
 
 
 1. if statement
