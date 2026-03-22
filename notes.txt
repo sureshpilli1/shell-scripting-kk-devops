@@ -640,6 +640,9 @@ else
     echo "File $file does not exist."
 fi
 
+-f means:
+Check if file exists and is a regular file
+
 Example 3:  Checking Connectivity
 ----------  
 
@@ -654,6 +657,87 @@ then
 else
     echo "Internet connectivity is down."
 fi
+
+expainaton by chat gpt:
+=======================
+
+1.Command Substitution
+ping_result=$(ping -c 1 google.com 2>&1)
+What this does:
+Runs the command:
+ping -c 1 google.com
+Meaning of options:
+ping → checks network connectivity
+-c 1 → send only 1 packet (quick test)
+What is $() ?
+Called command substitution
+$(command)
+Means:
+“Run this command and store its output”
+What is 2>&1 ?
+This is output redirection
+Part	Meaning
+1	standard output (normal output)
+2	error output
+2>&1	send errors also into normal output
+Why use it?
+So that:
+success output 
+error output 
+both go into:
+ping_result
+Example Output Stored
+If internet is working:
+64 bytes from google.com: icmp_seq=1 ttl=117 time=20 ms
+If internet is NOT working:
+ping: unknown host google.com
+
+2. Condition Check
+if [[ $ping_result == *"icmp_seq"* ]]
+What is [[ ... ]] ?
+Advanced condition (better than [ ])
+What is *"icmp_seq"* ?
+This is pattern matching
+* → anything before or after
+"icmp_seq" → keyword we search
+Meaning:
+“Check if output contains icmp_seq anywhere”
+Why icmp_seq?
+Because when ping is successful, output contains:
+icmp_seq=1
+
+3. Decision Making
+Case 1: Internet is UP
+ping_result contains "icmp_seq"
+Condition:
+TRUE
+Output:
+Internet connectivity is up.
+Case 2: Internet is DOWN
+ping_result does NOT contain "icmp_seq"
+Condition:
+FALSE
+Output:
+Internet connectivity is down.
+Full Flow (Very Important)
+1. Run ping command
+2. Store output in variable
+3. Check if output contains "icmp_seq"
+4. If yes → internet working
+5. Else → internet down
+Why This Approach is Used
+Because:
+We don’t rely on exit codes alone
+We check actual output content
+Works in automation scripts
+
+4. Real Example
+Working Internet:
+64 bytes from google.com: icmp_seq=1 ttl=117 time=15 ms
+Contains → icmp_seq 
+No Internet:
+ping: unknown host google.com
+No icmp_seq 
 
 3. if-elif-else Statement
 -------------------------
