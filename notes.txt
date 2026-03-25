@@ -862,6 +862,114 @@ else
 fi
 
 
+This script:
+Checks disk usage and classifies it as Critical / Warning / Normal
+
+1.Shebang
+#!/bin/bash
+Tells system:
+“Run this script using Bash”
+
+2.Threshold Values
+threshold_critical=15
+threshold_warning=12
+You are defining limits:
+
+Variable	Meaning
+threshold_critical	15% or more → Critical
+threshold_warning	12% or more → Warning
+
+3. Getting Current Disk Usage
+current_usage=$(df -h / | awk 'NR==2 {print $5}' | cut -d'%' -f1)
+This is the most important line 
+
+Step-by-step Breakdown
+Step 1: df -h /
+df -h /
+Shows disk usage of root (/)
+Example output:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        50G   20G   28G  40% /
+Step 2: awk 'NR==2 {print $5}'
+Picks:
+NR==2 → second line
+$5 → 5th column → Use%
+Output:
+40%
+Step 3: cut -d'%' -f1
+Removes %
+Output:
+40
+Final Result
+current_usage → 40
+4. Print Current Usage
+echo "Current disk usage: $current_usage%"
+Output
+Current disk usage: 40%
+5. First Condition (Critical)
+if [ $current_usage -ge $threshold_critical ]
+Means:
+Is usage ≥ 15 ?
+Example:
+40 ≥ 15 → TRUE
+Output:
+Disk usage is critical (40%). Taking immediate action!
+6. Second Condition (Warning)
+elif [ $current_usage -ge $threshold_warning ]
+Checked only if first condition fails
+Means:
+Is usage ≥ 12 ?
+Example:
+13 ≥ 15 → FALSE
+13 ≥ 12 → TRUE
+Output:
+Disk usage is high (13%). Consider freeing up space.
+8. Else (Normal)
+else
+Runs when:
+usage < 12
+Output:
+Disk usage is normal
+9. Important Logic Order (VERY IMPORTANT)
+Order matters:
+if >= 15   → critical
+elif >= 12 → warning
+else       → normal
+Why?
+If you reverse:
+40 ≥ 12 → TRUE
+It will never reach critical 
+10. Flow Diagram
+Get disk usage
+        ↓
+Is usage ≥ 15 ? → YES → Critical
+        ↓ NO
+Is usage ≥ 12 ? → YES → Warning
+        ↓ NO
+Normal
+11. Real DevOps Usage
+This script can be used for:
+
+Server monitoring
+Alert systems
+Auto cleanup scripts
+Cron jobs
+12. Example Outputs
+Case 1: 18%
+Current disk usage: 18%
+Disk usage is critical (18%)
+Case 2: 13%
+Current disk usage: 13%
+Disk usage is high (13%)
+Case 3: 8%
+Current disk usage: 8%
+Disk usage is normal
+13. Improvement Tip (Best Practice)
+Use quotes for safety:
+if [ "$current_usage" -ge "$threshold_critical" ]
+Final One-Line Understanding
+Script extracts disk usage → compares with thresholds → prints status based on conditions
+
 Example 3:
 ----------
 
