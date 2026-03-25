@@ -739,6 +739,70 @@ No Internet:
 ping: unknown host google.com
 No icmp_seq 
 
+sh Demo.sh does not give the correct out put 
+bash Demo.sh gives the correct out put
+if we want to run the command in sh shell also the following script is useful
+
+#!/bin/bash
+ping_result=$(ping -c 1 google.com 2>&1)
+echo "$ping_result" | grep -q "icmp_seq"
+if [ $? -eq 0 ]; then
+    echo "Internet connectivity is up."
+else
+    echo "Internet connectivity is down."
+fi
+
+What is $?
+$? is a special variable that stores:
+Exit status (return code) of the last executed command
+Simple Meaning
+$? → Did the previous command succeed or fail?
+Values of $?
+Value	Meaning
+0	Success 
+non-zero (1,2,…)	Failure 
+Example 1 (Success)
+ls
+echo $?
+Output:
+0
+ls worked → success
+Example 2 (Failure)
+ls wrongfile
+echo $?
+Output:
+2
+File not found → error → non-zero
+
+Very Important Rule 
+$? must be checked immediately after command
+Wrong
+ping -c 1 google.com
+echo "Checking..."
+echo $?
+$? now refers to echo, not ping
+Correct
+ping -c 1 google.com
+status=$?
+echo $status
+Cleaner Way (Best Practice)
+Instead of $?, directly write:
+if ping -c 1 google.com > /dev/null 2>&1; then
+    echo "Internet is up"
+else
+    echo "Internet is down"
+fi
+
+Bash automatically checks exit status
+Real DevOps Usage
+$? is used for:
+checking deployment success
+validating commands
+error handling
+automation scripts
+Final One-Line Answer
+$? tells whether the last command succeeded (0) or failed (non-zero)
+
 3. if-elif-else Statement
 -------------------------
 
