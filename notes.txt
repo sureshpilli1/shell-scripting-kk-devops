@@ -1194,7 +1194,8 @@ scp -i /c/Users/gpras/Downloads/testmc.pem ec2-user@13.232.216.223:/home/ec2-use
 
 what is a loop in SS?
 ----------------------
-
+A loop is a programming structure that:
+repeats a block of code multiple times
 
 for Loop
 ========
@@ -1217,6 +1218,17 @@ for num in 1 2 3 4 5
 do in.
     echo "Number: $num"
 done
+
+Iteration = repeating a block of code for multiple values or until a condition is met
+“Do this task for each item in a list”
+Iterating = doing something again and again (looping)
+Real-Life Example
+Think of:
+Counting numbers: 1 → 2 → 3 → 4
+Reading each line in a file
+Processing multiple servers one by one
+All of these are iteration
+
 
 Example 2: Iterating over Files and directories in a Directory
 ---------
