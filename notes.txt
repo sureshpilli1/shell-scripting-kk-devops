@@ -1215,7 +1215,7 @@ Example 1:
 
 # Example of a for loop iterating over a list of numbers
 for num in 1 2 3 4 5
-do in.
+do
     echo "Number: $num"
 done
 
