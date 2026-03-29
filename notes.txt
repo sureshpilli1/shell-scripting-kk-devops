@@ -1127,6 +1127,23 @@ case $day in
         ;;
 esac
 
+improved version of checking a day ia week by chatgpt
+
+#!/bin/bash
+
+read -p "Enter a day: " day
+
+case "$day" in
+    Monday|Tuesday|Wednesday|Thursday|Friday)
+        echo "$day is a weekday."
+        ;;
+    Saturday|Sunday)
+        echo "$day is a weekend day."
+        ;;
+    *)
+        echo "Invalid day."
+        ;;
+esac
 
 Example 3: Handling Menu Options
 ----------
