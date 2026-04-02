@@ -1336,6 +1336,12 @@ j++
 j--
 --j
 
+$((i * j))
+This is arithmetic expansion
+$(( expression ))
+Means:
+“Calculate this mathematically”
+
 6. while Loop
 -------------
 
