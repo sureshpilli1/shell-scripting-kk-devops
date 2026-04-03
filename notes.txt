@@ -1421,14 +1421,16 @@ Situation	Logic
 Counting up (1 → 5)	counter++
 Counting down (5 → 1)	counter--
 5. General Pattern for Loops
-Always follow this structure:
-initialize variable
-
-while [ condition ]
-do
-    do something with variable
-    update variable
-done
++++++++++++++++++++++++++++++++++++++++++++++++++++
+Always follow this structure:                     +
+initialize variable                               +
+                                                  +  
+while [ condition ]                               +
+do                                                +
+    do something with variable                    +    
+    update variable                               + 
+done                                              +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 6. Your Case Fits This Pattern
 counter=5
 
