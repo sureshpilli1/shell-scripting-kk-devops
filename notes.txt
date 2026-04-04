@@ -1599,8 +1599,40 @@ name
 4.
 5.
 exit 
-
-
+explaination by chatgpt
+_________________________________________________________________________________________________________________________________________________________________
+The Main Logic (Very Important)
+while IFS= read -r line
+This line does three important things
+(A) read line
+Reads one line at a time from file
+line → first line
+line → second line
+line → third line
+...
+(B) IFS=
+IFS = Internal Field Separator
+Default IFS splits by:
+space
+tab
+newline
+Why IFS= ?
+Setting it empty:
+IFS=
+Means:
+“Do NOT trim spaces”
+Example:
+Without IFS=:
+"  hello world  " → "hello world"
+With IFS=:
+"  hello world  " → "  hello world  " 
+(C) -r
+Prevents backslash interpretation
+Without -r:
+hello\world → helloworld 
+With -r:
+hello\world → hello\world 
+__________________________________________________________________________________________________________________________________________________________________
 Example 3: Processing User Input Until Exit
 ----------
 #!/bin/bash
