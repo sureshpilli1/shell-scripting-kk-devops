@@ -1971,7 +1971,9 @@ testing
 Passing Parameters to Functions
 -------------------------------
 
-Functions in shell scripts can accept parameters similar to scripts. Parameters are accessed inside the function using positional parameters ($1, $2, ...) or the special variables ($@, $*). Here’s how you define and use a function with parameters:
+Functions in shell scripts can accept parameters similar to scripts.
+Parameters are accessed inside the function using positional parameters ($1, $2, ...) or the special variables ($@, $*). 
+Here’s how you define and use a function with parameters:
 
 #!/bin/bash
 
@@ -2002,7 +2004,35 @@ sum 10 20
 Return Values
 -------------
 
-Shell functions do not have a traditional return statement like other programming languages. Instead, the return status of the last executed command is used as the return value of the function. To explicitly return a value, you can use echo or modify a global variable.
+Shell functions do not have a traditional return statement like other programming languages. 
+Instead, the return status of the last executed command is used as the return value of the function. 
+To explicitly return a value, you can use echo or modify a global variable.
+)
+
+In Bash:
+Functions don’t return values directly like other languages
+They mainly:
+print output (echo)
+or give status (success/failure)
+Simplest Example
+hello() {
+    echo "Hi"
+}
+Call it
+hello
+Output:
+Hi
+Here:
+Function gave output
+That is like “returning”
+Capturing That Output
+result=$(hello)
+echo $result
+Output:
+Hi
+So:
+echo → gives output  
+$() → captures it
 
 Example
 --------
