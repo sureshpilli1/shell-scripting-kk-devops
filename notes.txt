@@ -2033,6 +2033,37 @@ Hi
 So:
 echo → gives output  
 $() → captures it
+What if you want to use that result later?
+Example:
+Add 2+3 → then multiply result by 10
+You can’t do that unless you store it somewhere.
+With Capturing Output
+result=$(add 2 3)
+echo $result
+Now:
+result = 5
+Why Capturing is Needed
+Because now you can:
+Use it in another calculation
+result=$(add 2 3)
+final=$(( result * 10 ))
+echo $final
+Output:
+50
+Use it in conditions
+result=$(add 2 3)
+if [ $result -gt 4 ]; then
+    echo "Greater than 4"
+fi
+Use it in another function
+square() {
+    echo $(( $1 * $1 ))
+}
+num=$(add 2 3)
+square $num
+Output:
+25
+
 
 Example
 --------
