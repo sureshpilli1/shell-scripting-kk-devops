@@ -2080,6 +2080,35 @@ square() {
 # Call the function and capture the returned value
 output=$(square 5)
 echo "Square of 5 is: $output"
+| Type    | Scope                |
+| ------- | -------------------- |
+| `local` | inside function only |
+| global  | entire script        |
+local makes a variable usable only inside the function, preventing conflicts with other parts of the script
+
+With local
+sum() {
+    local num1=10
+    echo "Inside function: $num1"
+}
+sum
+echo "Outside function: $num1"
+Output:
+Inside function: 10
+Outside function:
+Outside → empty 
+
+Without local
+sum() {
+    num1=10
+}
+
+sum
+echo "Outside function: $num1"
+Output:
+Outside function: 10
+
+Now variable is global (not safe)
 
 Local Variables and global variables and its Scope
 --------------------------
